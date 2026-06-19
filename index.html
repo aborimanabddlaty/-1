@@ -2,133 +2,973 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>عرض النهارده | طلباتك هنا</title>
+
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+  <meta name="theme-color" content="#080808">
+
+  <meta name="description"
+        content="وجبة كفتة عائلية تكفي 4 أشخاص من مطعم طلباتك هنا بسعر 199 جنيه">
+
+  <title>وجبة الكفتة العائلية | طلباتك هنا</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap"
+        rel="stylesheet">
+
   <style>
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      min-height:100vh;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:20px;
-      font-family:Tahoma,Arial,sans-serif;
-      color:#fff;
+    :root {
+      --gold: #f4b41a;
+      --gold-light: #ffd66b;
+      --red: #991717;
+      --dark: #080808;
+      --card: #141414;
+      --white: #ffffff;
+      --gray: #b7b7b7;
+      --green: #25d366;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Cairo", sans-serif;
       background:
-        radial-gradient(circle at top right,rgba(255,159,10,.22),transparent 30%),
-        linear-gradient(145deg,#080808,#171717);
+        radial-gradient(
+          circle at 15% 15%,
+          rgba(244, 180, 26, 0.13),
+          transparent 28%
+        ),
+        radial-gradient(
+          circle at 85% 85%,
+          rgba(153, 23, 23, 0.2),
+          transparent 30%
+        ),
+        var(--dark);
+
+      color: var(--white);
+      min-height: 100vh;
+      overflow-x: hidden;
     }
-    .card{
-      width:min(520px,100%);
-      overflow:hidden;
-      border-radius:30px;
-      background:#151515;
-      border:1px solid rgba(255,255,255,.1);
-      box-shadow:0 25px 70px rgba(0,0,0,.55);
+
+    a {
+      text-decoration: none;
+      color: inherit;
     }
-    .top{
-      padding:35px 24px 28px;
-      text-align:center;
-      background:linear-gradient(135deg,#ffbf3f,#ff8a00);
-      color:#151515;
+
+    .container {
+      width: min(1180px, 92%);
+      margin: auto;
     }
-    .logo{
-      display:inline-block;
-      padding:8px 18px;
-      border-radius:999px;
-      background:#151515;
-      color:#ffb326;
-      font-weight:900;
-      margin-bottom:16px;
+
+    /* الهيدر */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+
+      background: rgba(8, 8, 8, 0.82);
+      backdrop-filter: blur(15px);
+
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     }
-    h1{font-size:2.15rem;line-height:1.3;margin:0}
-    #customerName{display:block;font-size:2.65rem}
-    .welcome{font-size:1.25rem;font-weight:900;margin:10px 0 0}
-    .content{padding:28px 22px}
-    .offer-title{text-align:center;font-size:1.7rem;margin:0 0 18px;color:#ffb326}
-    .items{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-    .item{
-      padding:15px 10px;
-      border-radius:16px;
-      text-align:center;
-      background:#222;
-      border:1px solid rgba(255,255,255,.07);
-      font-weight:800;
+
+    nav {
+      min-height: 72px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 20px;
     }
-    .price{
-      margin:20px 0;
-      padding:18px;
-      border-radius:20px;
-      text-align:center;
-      background:#ff9f0a;
-      color:#111;
-      font-size:1.3rem;
-      font-weight:900;
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+
+      font-size: 1.15rem;
+      font-weight: 900;
     }
-    .price strong{display:block;font-size:2.6rem;line-height:1.1}
-    .btn{
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      min-height:56px;
-      border-radius:16px;
-      text-decoration:none;
-      background:#22c55e;
-      color:#fff;
-      font-weight:900;
-      font-size:1.1rem;
+
+    .logo {
+      width: 48px;
+      height: 48px;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 15px;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--gold-light),
+          var(--gold)
+        );
+
+      color: #111;
+      font-size: 1.35rem;
+
+      box-shadow:
+        0 10px 30px rgba(244, 180, 26, 0.25);
     }
-    .note{text-align:center;color:#aaa;font-size:.86rem;margin:14px 0 0}
-    @media(max-width:430px){
-      .items{grid-template-columns:1fr}
-      h1{font-size:1.75rem}
-      #customerName{font-size:2.25rem}
+
+    .header-button {
+      padding: 11px 20px;
+
+      border-radius: 100px;
+
+      color: #111;
+      font-weight: 900;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--gold),
+          var(--gold-light)
+        );
+
+      box-shadow:
+        0 10px 28px rgba(244, 180, 26, 0.22);
+
+      transition: 0.3s;
+    }
+
+    .header-button:hover {
+      transform: translateY(-3px);
+    }
+
+    /* القسم الرئيسي */
+
+    .hero {
+      padding: 70px 0 45px;
+    }
+
+    .hero-grid {
+      display: grid;
+
+      grid-template-columns:
+        1.05fr 0.95fr;
+
+      align-items: center;
+      gap: 50px;
+    }
+
+    .offer-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+
+      margin-bottom: 20px;
+      padding: 8px 15px;
+
+      border-radius: 100px;
+
+      color: var(--gold-light);
+
+      background:
+        rgba(244, 180, 26, 0.09);
+
+      border:
+        1px solid rgba(244, 180, 26, 0.35);
+
+      font-weight: 800;
+      font-size: 0.93rem;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+
+      font-size:
+        clamp(2.4rem, 5vw, 5.2rem);
+
+      line-height: 1.15;
+      font-weight: 900;
+    }
+
+    h1 span {
+      color: var(--gold);
+
+      text-shadow:
+        0 10px 40px rgba(244, 180, 26, 0.2);
+    }
+
+    .description {
+      max-width: 650px;
+
+      margin-bottom: 25px;
+
+      color: #d5d5d5;
+
+      font-size:
+        clamp(1rem, 2vw, 1.2rem);
+
+      line-height: 1.9;
+    }
+
+    .price-box {
+      display: flex;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: 12px;
+
+      margin-bottom: 30px;
+    }
+
+    .price-number {
+      color: var(--gold);
+
+      font-size:
+        clamp(3.6rem, 7vw, 6rem);
+
+      font-weight: 900;
+      line-height: 0.9;
+    }
+
+    .price-text {
+      padding-bottom: 8px;
+
+      font-size: 1.4rem;
+      font-weight: 900;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .button {
+      min-height: 56px;
+      padding: 0 24px;
+
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+
+      border-radius: 16px;
+
+      font-weight: 900;
+
+      transition: 0.3s;
+    }
+
+    .button:hover {
+      transform: translateY(-4px);
+    }
+
+    .button-primary {
+      color: #111;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--gold),
+          var(--gold-light)
+        );
+
+      box-shadow:
+        0 13px 32px rgba(244, 180, 26, 0.23);
+    }
+
+    .button-secondary {
+      background: var(--card);
+
+      border:
+        1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    /* صورة العرض */
+
+    .image-area {
+      position: relative;
+    }
+
+    .image-border {
+      padding: 10px;
+
+      border-radius: 31px;
+
+      background:
+        linear-gradient(
+          145deg,
+          var(--gold),
+          rgba(255, 255, 255, 0.08),
+          var(--red)
+        );
+
+      box-shadow:
+        0 35px 90px rgba(0, 0, 0, 0.55);
+    }
+
+    .image-border img {
+      display: block;
+
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+
+      border-radius: 23px;
+    }
+
+    .people-badge {
+      position: absolute;
+      left: -22px;
+      bottom: 30px;
+
+      width: 120px;
+      height: 120px;
+
+      display: grid;
+      place-items: center;
+
+      text-align: center;
+
+      border-radius: 50%;
+
+      background:
+        linear-gradient(
+          145deg,
+          var(--red),
+          #580606
+        );
+
+      border: 5px solid var(--gold);
+
+      box-shadow:
+        0 18px 42px rgba(0, 0, 0, 0.45);
+
+      font-weight: 900;
+      line-height: 1.2;
+
+      transform: rotate(-6deg);
+    }
+
+    .people-badge strong {
+      display: block;
+      font-size: 2.2rem;
+    }
+
+    /* محتويات الوجبة */
+
+    .meal-details {
+      padding: 50px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .section-title h2 {
+      font-size:
+        clamp(1.9rem, 4vw, 3rem);
+
+      font-weight: 900;
+    }
+
+    .section-title p {
+      margin-top: 8px;
+      color: var(--gray);
+    }
+
+    .meal-cards {
+      display: grid;
+      grid-template-columns:
+        repeat(4, 1fr);
+
+      gap: 16px;
+    }
+
+    .meal-card {
+      padding: 25px 18px;
+
+      text-align: center;
+
+      border-radius: 23px;
+
+      background:
+        linear-gradient(
+          160deg,
+          rgba(255, 255, 255, 0.07),
+          rgba(255, 255, 255, 0.025)
+        );
+
+      border:
+        1px solid rgba(255, 255, 255, 0.08);
+
+      box-shadow:
+        0 15px 45px rgba(0, 0, 0, 0.18);
+
+      transition: 0.3s;
+    }
+
+    .meal-card:hover {
+      transform: translateY(-6px);
+
+      border-color:
+        rgba(244, 180, 26, 0.4);
+    }
+
+    .meal-icon {
+      width: 60px;
+      height: 60px;
+
+      margin: 0 auto 15px;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 18px;
+
+      font-size: 1.8rem;
+
+      background:
+        rgba(244, 180, 26, 0.12);
+
+      border:
+        1px solid rgba(244, 180, 26, 0.25);
+    }
+
+    .meal-card h3 {
+      margin-bottom: 6px;
+      font-size: 1.07rem;
+    }
+
+    .meal-card p {
+      color: var(--gray);
+      font-size: 0.9rem;
+    }
+
+    /* قسم الطلب */
+
+    .order-section {
+      padding: 40px 0 80px;
+    }
+
+    .order-box {
+      padding: 36px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 25px;
+
+      border-radius: 30px;
+
+      background:
+        linear-gradient(
+          115deg,
+          rgba(153, 23, 23, 0.96),
+          rgba(70, 5, 5, 0.98)
+        );
+
+      border:
+        1px solid rgba(255, 214, 107, 0.18);
+
+      box-shadow:
+        0 25px 70px rgba(0, 0, 0, 0.35);
+    }
+
+    .order-box h2 {
+      margin-bottom: 7px;
+
+      font-size:
+        clamp(1.7rem, 3vw, 2.7rem);
+
+      font-weight: 900;
+    }
+
+    .order-box p {
+      color: #f1dddd;
+    }
+
+    /* الفوتر */
+
+    footer {
+      padding: 28px 0 95px;
+
+      text-align: center;
+
+      color: #a8a8a8;
+
+      border-top:
+        1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    /* زر واتساب العائم */
+
+    .floating-whatsapp {
+      position: fixed;
+
+      left: 18px;
+      bottom: 18px;
+
+      z-index: 200;
+
+      width: 65px;
+      height: 65px;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 50%;
+
+      background: var(--green);
+      color: white;
+
+      font-size: 1.7rem;
+
+      border:
+        4px solid rgba(255, 255, 255, 0.17);
+
+      box-shadow:
+        0 15px 38px rgba(37, 211, 102, 0.34);
+
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%,
+      100% {
+        box-shadow:
+          0 0 0 0 rgba(37, 211, 102, 0.3),
+          0 15px 38px rgba(37, 211, 102, 0.34);
+      }
+
+      50% {
+        box-shadow:
+          0 0 0 14px rgba(37, 211, 102, 0),
+          0 15px 38px rgba(37, 211, 102, 0.34);
+      }
+    }
+
+    /* الموبايل */
+
+    @media (max-width: 900px) {
+      .hero {
+        padding-top: 35px;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .image-area {
+        order: 1;
+        max-width: 620px;
+        margin: auto;
+      }
+
+      .hero-content {
+        order: 2;
+        text-align: center;
+      }
+
+      .description {
+        margin-inline: auto;
+      }
+
+      .price-box,
+      .buttons {
+        justify-content: center;
+      }
+
+      .meal-cards {
+        grid-template-columns:
+          repeat(2, 1fr);
+      }
+
+      .order-box {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .container {
+        width: 94%;
+      }
+
+      nav {
+        min-height: 65px;
+      }
+
+      .brand {
+        font-size: 0.95rem;
+      }
+
+      .logo {
+        width: 42px;
+        height: 42px;
+      }
+
+      .header-button {
+        padding: 9px 14px;
+        font-size: 0.85rem;
+      }
+
+      .hero {
+        padding-top: 25px;
+      }
+
+      .image-border {
+        border-radius: 24px;
+      }
+
+      .image-border img {
+        border-radius: 18px;
+      }
+
+      .people-badge {
+        left: -4px;
+        bottom: 15px;
+
+        width: 95px;
+        height: 95px;
+
+        font-size: 0.82rem;
+      }
+
+      .people-badge strong {
+        font-size: 1.8rem;
+      }
+
+      .buttons .button {
+        width: 100%;
+      }
+
+      .meal-cards {
+        gap: 10px;
+      }
+
+      .meal-card {
+        padding: 19px 10px;
+        border-radius: 18px;
+      }
+
+      .order-box {
+        padding: 28px 18px;
+      }
     }
   </style>
 </head>
+
 <body>
-  <main class="card">
-    <section class="top">
-      <div class="logo">طلباتك هنا</div>
-      <h1>أهلاً يا <span id="customerName">يا غالي</span></h1>
-      <p class="welcome">نورتنا يا غالي ❤️</p>
-    </section>
 
-    <section class="content">
-      <h2 class="offer-title">🔥 عرض النهارده</h2>
+  <!-- الهيدر -->
 
-      <div class="items">
-        <div class="item">🍗 ربع فرخة</div>
-        <div class="item">🥙 2 حواوشي</div>
-        <div class="item">🍢 ربع كفتة</div>
-        <div class="item">🫓 عيش وطحينة وكاتشب</div>
+  <header>
+    <div class="container">
+
+      <nav>
+
+        <a href="#" class="brand">
+
+          <span class="logo">
+            ط
+          </span>
+
+          <span>
+            طلباتك هنا
+          </span>
+
+        </a>
+
+        <a href="tel:0503431662"
+           class="header-button">
+
+          اطلب دلوقتي
+
+        </a>
+
+      </nav>
+
+    </div>
+  </header>
+
+
+  <main>
+
+    <!-- العرض الرئيسي -->
+
+    <section class="hero">
+
+      <div class="container hero-grid">
+
+        <div class="hero-content">
+
+          <div class="offer-label">
+            🔥 عرض العيلة النهارده
+          </div>
+
+          <h1>
+            وجبة كفتة
+            <span>
+              تكفي 4 أشخاص
+            </span>
+          </h1>
+
+          <p class="description">
+
+            لمة العيلة محتاجة أكلة تشبع وتفرّح.
+
+            وجبة كفتة مشوية على الفحم
+
+            مع عيش طازة وطحينة وسلطات متنوعة
+
+            من مطعم طلباتك هنا.
+
+          </p>
+
+          <div class="price-box">
+
+            <div class="price-number">
+              199
+            </div>
+
+            <div class="price-text">
+              جنيه بس
+            </div>
+
+          </div>
+
+          <div class="buttons">
+
+            <a
+              href="https://wa.me/201030085653?text=أنا%20عاوز%20أطلب%20وجبة%20الكفتة%20العائلية%20بـ%20199%20جنيه"
+              target="_blank"
+              class="button button-primary">
+
+              اطلب على واتساب
+
+            </a>
+
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=ميت+ضافر+طريق+المقابر+القديمة"
+              target="_blank"
+              class="button button-secondary">
+
+              افتح الموقع على الخريطة
+
+            </a>
+
+          </div>
+
+        </div>
+
+
+        <div class="image-area">
+
+          <div class="image-border">
+
+            <img
+              src="offer.png"
+              alt="وجبة كفتة عائلية من طلباتك هنا">
+
+          </div>
+
+          <div class="people-badge">
+
+            تكفي
+
+            <strong>
+              4
+            </strong>
+
+            أشخاص
+
+          </div>
+
+        </div>
+
       </div>
 
-      <div class="price">
-        كل ده بـ
-        <strong>155 جنيه</strong>
-        بس
+    </section>
+
+
+    <!-- تفاصيل الوجبة -->
+
+    <section class="meal-details">
+
+      <div class="container">
+
+        <div class="section-title">
+
+          <h2>
+            الوجبة فيها إيه؟
+          </h2>
+
+          <p>
+            وجبة كاملة تكفي لمة العيلة
+          </p>
+
+        </div>
+
+        <div class="meal-cards">
+
+          <div class="meal-card">
+
+            <div class="meal-icon">
+              🥩
+            </div>
+
+            <h3>
+              كفتة مشوية
+            </h3>
+
+            <p>
+              كفتة متبلة ومشوية على الفحم
+            </p>
+
+          </div>
+
+
+          <div class="meal-card">
+
+            <div class="meal-icon">
+              🫓
+            </div>
+
+            <h3>
+              عيش طازة
+            </h3>
+
+            <p>
+              عيش طازة يكمل طعم الوجبة
+            </p>
+
+          </div>
+
+
+          <div class="meal-card">
+
+            <div class="meal-icon">
+              🥣
+            </div>
+
+            <h3>
+              طحينة
+            </h3>
+
+            <p>
+              طحينة كريمي بطعم مميز
+            </p>
+
+          </div>
+
+
+          <div class="meal-card">
+
+            <div class="meal-icon">
+              🥗
+            </div>
+
+            <h3>
+              سلطات متنوعة
+            </h3>
+
+            <p>
+              تشكيلة سلطات طازة وفريش
+            </p>
+
+          </div>
+
+        </div>
+
       </div>
 
-      <a id="orderBtn" class="btn" href="#" target="_blank">💬 اطلب العرض على واتساب</a>
-      <p class="note">العرض متاح حسب الكمية المتوفرة</p>
     </section>
+
+
+    <!-- قسم الطلب -->
+
+    <section class="order-section">
+
+      <div class="container">
+
+        <div class="order-box">
+
+          <div>
+
+            <h2>
+              جاهز للّمة؟ 😍
+            </h2>
+
+            <p>
+              اطلب وجبة الكفتة العائلية دلوقتي
+              والتوصيل حسب منطقتك.
+            </p>
+
+          </div>
+
+          <a
+            href="tel:0503431662"
+            class="button button-primary">
+
+            اتصل: 0503431662
+
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
   </main>
 
-  <script>
-    const params = new URLSearchParams(window.location.search);
-    const rawName = (params.get("name") || "يا غالي").trim();
-    const safeName = rawName.substring(0, 30);
 
-    document.getElementById("customerName").textContent = safeName;
+  <!-- الفوتر -->
 
-    const message =
-      "السلام عليكم، أنا " + safeName +
-      " وعاوز أطلب عرض النهارده: ربع فرخة + 2 حواوشي + ربع كفتة + عيش وطحينة وكاتشب بـ 155 جنيه";
+  <footer>
 
-    document.getElementById("orderBtn").href =
-      "https://wa.me/201030085653?text=" + encodeURIComponent(message);
-  </script>
+    <div class="container">
+
+      📍 ميت ضافر – طريق المقابر القديمة
+
+      <br>
+
+      📞 للطلبات: 0503431662
+
+      <br>
+
+      جميع الحقوق محفوظة © طلباتك هنا
+
+    </div>
+
+  </footer>
+
+
+  <!-- زر واتساب -->
+
+  <a
+    href="https://wa.me/201030085653?text=أنا%20عاوز%20أطلب%20وجبة%20الكفتة%20العائلية"
+    target="_blank"
+    class="floating-whatsapp"
+    aria-label="الطلب عبر واتساب">
+
+    ☎
+
+  </a>
+
 </body>
 </html>
