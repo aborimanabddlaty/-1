@@ -1,120 +1,134 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>جمال فودة | الراسخون للعقارات</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>عرض النهارده | طلباتك هنا</title>
   <style>
-    *{box-sizing:border-box;margin:0;padding:0;font-family:'Tahoma',sans-serif}
-    body{background:#071018;color:white;line-height:1.8}
-    .hero{
+    *{box-sizing:border-box}
+    body{
+      margin:0;
       min-height:100vh;
-      background:linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.85)),
-      url("https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80");
-      background-size:cover;background-position:center;
-      padding:25px;display:flex;align-items:center;justify-content:center;text-align:center;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:20px;
+      font-family:Tahoma,Arial,sans-serif;
+      color:#fff;
+      background:
+        radial-gradient(circle at top right,rgba(255,159,10,.22),transparent 30%),
+        linear-gradient(145deg,#080808,#171717);
     }
-    .box{
-      max-width:850px;background:rgba(255,255,255,.08);
-      border:1px solid rgba(212,175,55,.5);border-radius:28px;
-      padding:35px 25px;backdrop-filter:blur(12px);
-      box-shadow:0 20px 60px rgba(0,0,0,.5);
-    }
-    h1{color:#d4af37;font-size:38px;margin-bottom:10px}
-    h2{font-size:23px;margin-bottom:20px}
-    p{font-size:18px;color:#eee;margin-bottom:18px}
-    .buttons{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-top:25px}
-    .btn{
-      text-decoration:none;color:white;padding:14px 22px;border-radius:50px;
-      font-weight:bold;transition:.3s;min-width:170px;
-    }
-    .whatsapp{background:#25D366}
-    .facebook{background:#1877F2}
-    .instagram{background:linear-gradient(45deg,#f58529,#dd2a7b,#8134af)}
-    .btn:hover{transform:translateY(-4px);box-shadow:0 10px 25px rgba(0,0,0,.4)}
-    .section{padding:55px 22px;max-width:1100px;margin:auto}
-    .title{text-align:center;color:#d4af37;font-size:30px;margin-bottom:30px}
-    .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px}
     .card{
-      background:#101d28;border:1px solid rgba(212,175,55,.25);
-      border-radius:22px;overflow:hidden;box-shadow:0 15px 35px rgba(0,0,0,.25);
+      width:min(520px,100%);
+      overflow:hidden;
+      border-radius:30px;
+      background:#151515;
+      border:1px solid rgba(255,255,255,.1);
+      box-shadow:0 25px 70px rgba(0,0,0,.55);
     }
-    .card img{width:100%;height:190px;object-fit:cover}
-    .card div{padding:20px}
-    .card h3{color:#d4af37;margin-bottom:10px}
-    .contact{text-align:center;background:#0b1620;border-top:1px solid rgba(212,175,55,.3);padding:35px 20px}
-    .footer{text-align:center;padding:18px;color:#aaa;font-size:14px}
-    @media(max-width:600px){
-      h1{font-size:30px}
-      h2{font-size:20px}
-      p{font-size:16px}
+    .top{
+      padding:35px 24px 28px;
+      text-align:center;
+      background:linear-gradient(135deg,#ffbf3f,#ff8a00);
+      color:#151515;
+    }
+    .logo{
+      display:inline-block;
+      padding:8px 18px;
+      border-radius:999px;
+      background:#151515;
+      color:#ffb326;
+      font-weight:900;
+      margin-bottom:16px;
+    }
+    h1{font-size:2.15rem;line-height:1.3;margin:0}
+    #customerName{display:block;font-size:2.65rem}
+    .welcome{font-size:1.25rem;font-weight:900;margin:10px 0 0}
+    .content{padding:28px 22px}
+    .offer-title{text-align:center;font-size:1.7rem;margin:0 0 18px;color:#ffb326}
+    .items{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .item{
+      padding:15px 10px;
+      border-radius:16px;
+      text-align:center;
+      background:#222;
+      border:1px solid rgba(255,255,255,.07);
+      font-weight:800;
+    }
+    .price{
+      margin:20px 0;
+      padding:18px;
+      border-radius:20px;
+      text-align:center;
+      background:#ff9f0a;
+      color:#111;
+      font-size:1.3rem;
+      font-weight:900;
+    }
+    .price strong{display:block;font-size:2.6rem;line-height:1.1}
+    .btn{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      min-height:56px;
+      border-radius:16px;
+      text-decoration:none;
+      background:#22c55e;
+      color:#fff;
+      font-weight:900;
+      font-size:1.1rem;
+    }
+    .note{text-align:center;color:#aaa;font-size:.86rem;margin:14px 0 0}
+    @media(max-width:430px){
+      .items{grid-template-columns:1fr}
+      h1{font-size:1.75rem}
+      #customerName{font-size:2.25rem}
     }
   </style>
 </head>
 <body>
+  <main class="card">
+    <section class="top">
+      <div class="logo">طلباتك هنا</div>
+      <h1>أهلاً يا <span id="customerName">يا غالي</span></h1>
+      <p class="welcome">نورتنا يا غالي ❤️</p>
+    </section>
 
-  <section class="hero">
-    <div class="box">
-      <h1>جمال فودة</h1>
-      <h2>وكيل عقارات | شركة الراسخون للعقارات - عجمان</h2>
-      <p>
-        لو بتدور على عقار مناسب في عجمان سواء للسكن أو الاستثمار،
-        هنا هتلاقي متابعة احترافية، اختيارات قوية، واستشارة تساعدك تاخد القرار الصح.
-      </p>
-      <p>
-        شركة الراسخون للعقارات من الشركات المعروفة في سوق العقارات بدولة الإمارات،
-        وبتقدم حلول عقارية متنوعة تناسب العملاء والمستثمرين.
-      </p>
+    <section class="content">
+      <h2 class="offer-title">🔥 عرض النهارده</h2>
 
-      <div class="buttons">
-        <a class="btn whatsapp" href="https://wa.me/971525344448" target="_blank">تواصل واتساب</a>
-        <a class="btn facebook" href="https://www.facebook.com/share/1HW3er3LyD/?mibextid=wwXIfr" target="_blank">فيس بوك</a>
-        <a class="btn instagram" href="https://www.instagram.com/gamalfoda2019?igsh=ZHVocXlpeGo3N2xh" target="_blank">إنستجرام</a>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <h2 class="title">خدماتنا العقارية</h2>
-
-    <div class="cards">
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=900&q=80">
-        <div>
-          <h3>بيع وشراء العقارات</h3>
-          <p>نساعدك تختار العقار المناسب حسب ميزانيتك واحتياجك في أفضل مناطق عجمان.</p>
-        </div>
+      <div class="items">
+        <div class="item">🍗 ربع فرخة</div>
+        <div class="item">🥙 2 حواوشي</div>
+        <div class="item">🍢 ربع كفتة</div>
+        <div class="item">🫓 عيش وطحينة وكاتشب</div>
       </div>
 
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=900&q=80">
-        <div>
-          <h3>استثمار عقاري</h3>
-          <p>فرص عقارية مميزة للمستثمرين بعوائد واعدة واختيارات تناسب السوق الإماراتي.</p>
-        </div>
+      <div class="price">
+        كل ده بـ
+        <strong>155 جنيه</strong>
+        بس
       </div>
 
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=900&q=80">
-        <div>
-          <h3>استشارة ومتابعة</h3>
-          <p>متابعة خطوة بخطوة من أول الاستفسار لحد اختيار الوحدة المناسبة بثقة ووضوح.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+      <a id="orderBtn" class="btn" href="#" target="_blank">💬 اطلب العرض على واتساب</a>
+      <p class="note">العرض متاح حسب الكمية المتوفرة</p>
+    </section>
+  </main>
 
-  <section class="contact">
-    <h2 class="title">ابدأ رحلتك العقارية الآن</h2>
-    <p>كلمنا على واتساب واسأل عن أحدث العروض العقارية في عجمان.</p>
-    <div class="buttons">
-      <a class="btn whatsapp" href="https://wa.me/971525344448" target="_blank">+971 52 534 4448</a>
-    </div>
-  </section>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const rawName = (params.get("name") || "يا غالي").trim();
+    const safeName = rawName.substring(0, 30);
 
-  <div class="footer">
-    © 2026 جمال فودة - الراسخون للعقارات | تصميم ELSMKARYMEDIA
-  </div>
+    document.getElementById("customerName").textContent = safeName;
 
+    const message =
+      "السلام عليكم، أنا " + safeName +
+      " وعاوز أطلب عرض النهارده: ربع فرخة + 2 حواوشي + ربع كفتة + عيش وطحينة وكاتشب بـ 155 جنيه";
+
+    document.getElementById("orderBtn").href =
+      "https://wa.me/201030085653?text=" + encodeURIComponent(message);
+  </script>
 </body>
 </html>
